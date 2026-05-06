@@ -1,38 +1,8 @@
-equipos = {
-    "pais1": {
-        "nombre": "",
-        "golesLocal": 0,
-        "golesVisitante": 0,
-        "golesEnContra": 0,
-        "puntos": 0,
-    },
-    "pais2": {
-        "nombre": "",
-        "golesLocal": 0,
-        "golesVisitante": 0,
-        "golesEnContra": 0,
-        "puntos": 0,
-    },
-    "pais3": {
-        "nombre": "",
-        "golesLocal": 0,
-        "golesVisitante": 0,
-        "golesEnContra": 0,
-        "puntos": 0,
-    },
-    "pais4": {
-        "nombre": "",
-        "golesLocal": 0,
-        "golesVisitante": 0,
-        "golesEnContra": 0,
-        "puntos": 0,
-    },
-}
-
+equipos = {}
 cantidadPartidos = 6
 cantidadEquipos = 4
 
-def ocuparEquipo():
+def registrarEquipo():
     print()
 
 def main():
@@ -40,9 +10,26 @@ def main():
     print("Ejemplo: ARG BRA 1 0")
     for i in range(1,cantidadPartidos + 1):
         linea = input("Partido " + str(i) + ": ")    
-        for x in range(1,5):
-            ocuparEquipo()
+        division = linea.split(" ")
+        equipoLocal = division[0]
+        equipoVisitante = division[1]
+        golesLocal = int(division[2])
+        golesVisitante = int(division[3])
+
+        for team in [equipoLocal, equipoVisitante]:
+            if team not in equipos:
+                equipos[team] = {
+                    "puntos": 0,
+                    "golesAFavor": 0,
+                    "golesEnContra": 0
+                }
+        
+        equipos[equipoLocal]["golesAFavor"] += golesLocal
+        equipos[equipoVisitante]["golesEnContra"] += golesVisitante
+
+        equipos[equipoVisitante]["golesAFavor"] += golesVisitante
+        equipos[equipoVisitante]["golesEnContra"] += golesLocal
+
         
 
-
-main()
+main()  
