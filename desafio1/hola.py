@@ -48,7 +48,7 @@ def main():
 
         
         for seleccion in equipos:
-
+            print("hola")
     print(equipos)    
 
         
