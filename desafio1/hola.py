@@ -1,9 +1,6 @@
 equipos = {}
 cantidadPartidos = 6
-cantidadEquipos = 4
-
-def registrarEquipo():
-    print()
+cantidadEquiposMax = 4
 
 def main():
     print("Ingrese Los resultados del partido de la siguiente forma (EquipoLocal EquipoVisitante GolesLocal GolesVisitante)")
@@ -17,18 +14,42 @@ def main():
         golesVisitante = int(division[3])
 
         for team in [equipoLocal, equipoVisitante]:
-            if team not in equipos:
+            if team not in equipos and len(equipos) < cantidadEquiposMax:
                 equipos[team] = {
                     "puntos": 0,
                     "golesAFavor": 0,
-                    "golesEnContra": 0
+                    "golesEnContra": 0,
+                    "diferenciaGol": 0,
+                    "partidosJugados": 0,
                 }
         
-        equipos[equipoLocal]["golesAFavor"] += golesLocal
-        equipos[equipoVisitante]["golesEnContra"] += golesVisitante
+        # CALCULO PUNTAJES
+        if golesLocal > golesVisitante:
+            equipos[equipoLocal]["puntos"] += 3
+        elif golesVisitante > golesLocal:
+            equipos[equipoVisitante]["puntos"] += 3
+        else:
+            equipos[equipoLocal]["puntos"] += 1
+            equipos[equipoVisitante]["puntos"] += 1
 
+        # STATS EQUIPO LOCAL        
+        equipos[equipoLocal]["golesAFavor"] += golesLocal
+        equipos[equipoLocal]["golesEnContra"] += golesVisitante
+        equipos[equipoLocal]["partidosJugados"] += 1
+
+        # STATS EQUIPO VISITANTE
         equipos[equipoVisitante]["golesAFavor"] += golesVisitante
         equipos[equipoVisitante]["golesEnContra"] += golesLocal
+        equipos[equipoVisitante]["partidosJugados"] += 1
+
+        # CALCULO DIFERENCIA DE GOL
+        equipos[equipoLocal]["diferenciaGol"] = equipos[equipoLocal]["golesAFavor"] - equipos[equipoLocal]["golesEnContra"]    
+        equipos[equipoVisitante]["diferenciaGol"] = equipos[equipoVisitante]["golesAFavor"] - equipos[equipoVisitante]["golesEnContra"]
+
+        
+        for seleccion in equipos:
+            print("hola")
+    print(equipos)    
 
         
 
