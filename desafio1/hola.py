@@ -1,4 +1,5 @@
 equipos = {}
+equiposOrdenados = []
 cantidadPartidos = 6
 cantidadEquiposMax = 4
 
@@ -46,10 +47,17 @@ def main():
         equipos[equipoLocal]["diferenciaGol"] = equipos[equipoLocal]["golesAFavor"] - equipos[equipoLocal]["golesEnContra"]    
         equipos[equipoVisitante]["diferenciaGol"] = equipos[equipoVisitante]["golesAFavor"] - equipos[equipoVisitante]["golesEnContra"]
 
+
+        {
+            'ARG': {'puntos': 9, 'golesAFavor': 10, 'golesEnContra': 4, 'diferenciaGol': 6, 'partidosJugados': 3}, 
+            'BRA': {'puntos': 0, 'golesAFavor': 0, 'golesEnContra': 8, 'diferenciaGol': -8, 'partidosJugados': 3}, 
+            'HOL': {'puntos': 6, 'golesAFavor': 9, 'golesEnContra': 6, 'diferenciaGol': 3, 'partidosJugados': 3}, 
+            'GER': {'puntos': 3, 'golesAFavor': 5, 'golesEnContra': 6, 'diferenciaGol': -1, 'partidosJugados': 3}
+        }
+
         
-        for seleccion in equipos:
-            print("hola")
-    print(equipos)    
+    print(equipos)  
+    
 
         
 
