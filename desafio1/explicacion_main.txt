@@ -1,0 +1,19 @@
+El programa empieza abriendo el archivo de resultados de forma segura. 
+Lo primero que hace es leer la cantidad total de partidos para saber cuántas veces tiene que repetir el proceso de lectura. 
+Por cada línea que encuentra, separa los nombres de los equipos y los goles. 
+Un detalle importante es que transforma todos los nombres a mayúsculas para que el sistema sea inteligente y no se confunda si alguien escribió "Arg" o "ARG", tratando a la selección siempre como la misma.
+
+Antes de cargar cualquier dato, el código se asegura de que la información sea real y no esté repetida. 
+Para eso, crea un "ID" único para cada enfrentamiento ordenando los nombres alfabéticamente (por ejemplo, siempre será "ARG-BRA"). 
+Si el programa ve que ese partido ya se procesó antes, usa un "salto" para ignorar la línea y no sumar puntos de más. 
+También verifica que los goles estén en el rango de 0 a 20; si detecta un número loco o fuera de lugar, descarta ese partido para proteger la integridad de la tabla.
+
+En la parte central, el sistema gestiona a los participantes. 
+Solo permite que entren los primeros cuatro equipos que aparecen en el archivo; si intenta colarse un quinto, el programa lo rebota. 
+Si todo está en orden, el código "reparte" los puntos según el resultado (3 al ganador o 1 a cada uno si empatan) y actualiza los goles a favor y en contra. 
+Con estos datos, calcula automáticamente la diferencia de gol, que es el valor clave que se usa para desempatar posiciones más adelante.
+
+Para terminar, el programa pasa toda esa información a una lista y la ordena siguiendo una jerarquía estricta. 
+Primero se fija en los puntos, si hay empate mira la diferencia de gol, y si siguen iguales, usa los goles a favor. 
+En caso de que el empate sea total, aplica un criterio de última instancia por orden alfabético. 
+Una vez que tiene la lista definitiva, imprime de forma prolija quiénes son los dos clasificados y quién quedó tercero, tal cual lo pide el reglamento del torneo.
