@@ -56,7 +56,7 @@ def main():
 
     
     try:
-        with open("desafio2/penales.txt", "r") as archivo:
+        with open("penales.txt", "r") as archivo:
 
             secuencia = archivo.read().strip()
 
