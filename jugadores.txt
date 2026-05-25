@@ -1,0 +1,8 @@
+Messi,A,10,40,delantero,True
+Di Maria,A,10,35,mediocampista,False
+MacAllister,A,15,40,mediocampista,False
+Romero,A,5,15,defensor,False
+Martinez,A,20,2,arquero,False
+Vinicius,B,10,50,delantero,False
+Rodrygo,B,20,10,delantero,False
+Paqueta,B,15,35,mediocampista,False
